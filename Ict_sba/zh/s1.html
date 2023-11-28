@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html lang="zh" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js'></script>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script src="../main.js"></script>
+    <link rel="stylesheet" href="../top.css">
+    <link rel="stylesheet" href="../style.css">
+    <title>中國暑期遊學</title>
+</head>
+<body onload="next();">
+    <div style="height: 50px;"></div>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">語言 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../en/s1.html">English</a></li>
+                            <li><a href="../zh/s1.html">中文</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="index.html">首頁</a></li>
+                    <li><a href="act.html">活動經歷</a></li>
+                    <li><a href="more.html">更多資訊</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">相簿 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-submenu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                   aria-haspopup="true" aria-expanded="false">上海兩日遊 <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="sh1.html">第1天</a></li>
+                                    <li><a href="sh2.html">第2天</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <a href="#" class="dropdown-toggle data-toggle="dropdown" role="button"
+                                   aria-haspopup="true" aria-expanded="false">深圳三日遊 <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="s1.html">第1天</a></li>
+                                    <li><a href="s2.html">第2天</a></li>
+                                    <li><a href="s3.html">第3天</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="message.html">留言板</a></li>
+                    <li><a href="map.html">網頁地圖</a></li>
+                    <li><a href="#" onclick="music()">背景音樂(開/關)</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--響應式選單-->
+    <h1 class="text-center">圖片庫</h1>
+    <h3 class="text-center">深圳三日遊第1天</h3>
+    <div class="carousel" style="width:80%;">
+        <div class="image-container">
+            <div class="image-wrapper">
+                <img id="pic" style="width: 100%; height: 450px;">
+
+                <div class="image-border"></div>
+            </div>
+        </div>
+        <button class="prev" onclick="pre()">&#10094;</button>
+        <button class="next" onclick="next()">&#10095;</button>
+    </div>
+    <div id="imageDescription" class="text-center"></div>
+    <div style="height: 50px;"></div>
+
+    <div class="image-container">
+        <label>
+            <input type="radio" name="image" value="../photo/1.jpg" onchange="changeImage(this)" data-description="這是在深圳灣附近拍攝的照片">
+            <div class="image-wrapper">
+                <img src="../photo/1.jpg" alt="Image 1">
+                <div class="image-border"></div>
+            </div>
+        </label>
+        <label>
+            <input type="radio" name="image" value="../photo/2.jpg" onchange="changeImage(this)" data-description="這是在崗廈北站拍攝的照片">
+            <div class="image-wrapper">
+                <img src="../photo/2.jpg" alt="Image 1">
+                <div class="image-border"></div>
+            </div>
+        </label>
+        <label>
+            <input type="radio" name="image" value="../photo/3.jpg" onchange="changeImage(this)" data-description="這是在深圳灣附近拍攝的照片">
+            <div class="image-wrapper">
+                <img src="../photo/3.jpg" alt="Image 1">
+                <div class="image-border"></div>
+            </div>
+        </label>
+        <label>
+            <input type="radio" name="image" value="../photo/home.jpg" onchange="changeImage(this)" data-description="這是在平安國際金融中心附近拍攝的照片">
+            <div class="image-wrapper">
+                <img src="../photo/home.jpg" alt="Image 1">
+                <div class="image-border"></div>
+            </div>
+        </label>
+    </div>
+    <div class="back-top hide" title="回頂部"></div>
+</body>
