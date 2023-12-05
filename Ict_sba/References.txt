@@ -44,3 +44,6 @@ http://blog.shihshih.com/pure-css-slider/
 https://codepen.io/baarbaracrr/pen/KKovmGb
 https://www.aigei.com/item/shen_zhen_zhi_y_2.html
 https://www.canva.com/design/DAF1cKvEjnQ/H7-CP6LOAq6a_9VeLxrZgw/edit
+https://www.photopea.com/
+https://sc.chinaz.com/jiaoben/160525015030.htm#down
+https://github.com/VincentGarreau/particles.js/tree/master/demo

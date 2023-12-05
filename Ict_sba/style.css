@@ -12,8 +12,6 @@
 }
 
 body {
-    background-image: url('https://static.runoob.com/images/mix/paper.gif');
-    background-color: #cccccc;
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
@@ -25,7 +23,6 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #cccccc;
 }
 
 #chat-box {
@@ -292,12 +289,7 @@ body {
         /* 其他樣式 */
     }
 
-body {
-    padding: 20px;
-    margin: 0;
-    background-color: #f2f2f2;
-    font-family: Arial, sans-serif;
-}
+
 
 #messages {
     margin-bottom: 20px; /* Add margin to separate from the message form */
@@ -566,4 +558,17 @@ h2 {
 }
 h3 {
     line-height: 1.5;
+}
+
+
+canvas {
+    display: block;
+}
+
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 1000%;
+    object-fit: cover;
+    background-color: #ffffff;
 }

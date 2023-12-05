@@ -28,6 +28,7 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
+                    <li><img src="../logo.png" alt="Image 1" style="width: 100px; height: 100px;"></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                            aria-expanded="false">語言 <span class="caret"></span></a>
@@ -70,51 +71,57 @@
         </div>
     </nav>
     <!--響應式選單-->
-    <h1 class="text-center">圖片庫</h1>
-    <h3 class="text-center">深圳三日遊第1天</h3>
-    <div class="carousel" style="width:80%;">
-        <div class="image-container">
-            <div class="image-wrapper">
-                <img id="pic" style="width: 100%; height: 450px;">
+    <div id="particles-js"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1 class="text-center">圖片庫</h1>
+                <h3 class="text-center">深圳三日遊第1天</h3>
+                <div class="carousel" style="width:80%;">
+                    <div class="image-container">
+                        <div class="image-wrapper">
+                            <img id="pic" style="width: 100%; height: 450px;">
 
-                <div class="image-border"></div>
-            </div>
-        </div>
-        <button class="prev" onclick="pre()">&#10094;</button>
-        <button class="next" onclick="next()">&#10095;</button>
-    </div>
-    <div id="imageDescription" class="text-center"></div>
-    <div style="height: 50px;"></div>
+                            <div class="image-border"></div>
+                        </div>
+                    </div>
+                    <button class="prev" onclick="pre()">&#10094;</button>
+                    <button class="next" onclick="next()">&#10095;</button>
+                </div>
+                <div id="imageDescription" class="text-center"></div>
+                <div style="height: 50px;"></div>
 
-    <div class="image-container">
-        <label>
-            <input type="radio" name="image" value="../photo/1.jpg" onchange="changeImage(this)" data-description="這是在深圳灣附近拍攝的照片">
-            <div class="image-wrapper">
-                <img src="../photo/1.jpg" alt="Image 1">
-                <div class="image-border"></div>
-            </div>
-        </label>
-        <label>
-            <input type="radio" name="image" value="../photo/2.jpg" onchange="changeImage(this)" data-description="這是在崗廈北站拍攝的照片">
-            <div class="image-wrapper">
-                <img src="../photo/2.jpg" alt="Image 1">
-                <div class="image-border"></div>
-            </div>
-        </label>
-        <label>
-            <input type="radio" name="image" value="../photo/3.jpg" onchange="changeImage(this)" data-description="這是在深圳灣附近拍攝的照片">
-            <div class="image-wrapper">
-                <img src="../photo/3.jpg" alt="Image 1">
-                <div class="image-border"></div>
-            </div>
-        </label>
-        <label>
-            <input type="radio" name="image" value="../photo/home.jpg" onchange="changeImage(this)" data-description="這是在平安國際金融中心附近拍攝的照片">
-            <div class="image-wrapper">
-                <img src="../photo/home.jpg" alt="Image 1">
-                <div class="image-border"></div>
-            </div>
-        </label>
-    </div>
-    <div class="back-top hide" title="回頂部"></div>
+                <div class="image-container">
+                    <label>
+                        <input type="radio" name="image" value="../photo/1.jpg" onchange="changeImage(this)" data-description="這是在深圳灣附近拍攝的照片">
+                        <div class="image-wrapper">
+                            <img src="../photo/1.jpg" alt="Image 1">
+                            <div class="image-border"></div>
+                        </div>
+                    </label>
+                    <label>
+                        <input type="radio" name="image" value="../photo/2.jpg" onchange="changeImage(this)" data-description="這是在崗廈北站拍攝的照片">
+                        <div class="image-wrapper">
+                            <img src="../photo/2.jpg" alt="Image 1">
+                            <div class="image-border"></div>
+                        </div>
+                    </label>
+                    <label>
+                        <input type="radio" name="image" value="../photo/3.jpg" onchange="changeImage(this)" data-description="這是在深圳灣附近拍攝的照片">
+                        <div class="image-wrapper">
+                            <img src="../photo/3.jpg" alt="Image 1">
+                            <div class="image-border"></div>
+                        </div>
+                    </label>
+                    <label>
+                        <input type="radio" name="image" value="../photo/home.jpg" onchange="changeImage(this)" data-description="這是在平安國際金融中心附近拍攝的照片">
+                        <div class="image-wrapper">
+                            <img src="../photo/home.jpg" alt="Image 1">
+                            <div class="image-border"></div>
+                        </div>
+                    </label>
+                </div>
+                <div class="back-top hide" title="回頂部"></div>
+                <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+                <script src="../app.js"></script>
 </body>

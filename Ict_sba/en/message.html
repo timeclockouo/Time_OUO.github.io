@@ -35,6 +35,7 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
+                    <li><img src="../logo.png" alt="Image 1" style="width: 100px; height: 100px;"></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                            aria-expanded="false">Language <span class="caret"></span></a>
@@ -76,186 +77,193 @@
             </div>
         </div>
     </nav>
-    <div id="chat-container">
-        <div id="chat-box"></div>
-        <div id="message-details"></div>
-        <div id="input-container">
-            <input type="text" id="username-input" placeholder="Username">
-            <input type="text" id="message-input" placeholder="Enter your message">
-            <button onclick="startSpeechRecognition()"><i class="fa fa-microphone"></i>Voice Input</button>
-            <button id="send-button">Send</button>
-            <button id="cancel-button">Cancel Reply</button>
-        </div>
 
-    </div>
+    <div id="particles-js"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div id="chat-container">
+                    <div id="chat-box"></div>
+                    <div id="message-details"></div>
+                    <div id="input-container">
+                        <input type="text" id="username-input" placeholder="Username">
+                        <input type="text" id="message-input" placeholder="Enter your message">
+                        <button onclick="startSpeechRecognition()"><i class="fa fa-microphone"></i>Voice Input</button>
+                        <button id="send-button">Send</button>
+                        <button id="cancel-button">Cancel Reply</button>
+                    </div>
 
-    <script>
-        var cancelReplyBtn = document.getElementById('cancel-button');
-        var messageDetails = document.getElementById('message-details');
-        var writetext = "Click to reply to the message";
-        messageDetails.textContent = writetext; // Set the text content to be displayed here
+                </div>
 
-        // Get DOM elements
-        const chatBox = document.getElementById('chat-box');
-        const messageInput = document.getElementById('message-input');
-        const sendButton = document.getElementById('send-button');
-        let replyingBubble = null;
-        // Get the cancel button element
-        const cancelButton = document.getElementById('cancel-button');
+                <script>
+                    var cancelReplyBtn = document.getElementById('cancel-button');
+                    var messageDetails = document.getElementById('message-details');
+                    var writetext = "Click to reply to the message";
+                    messageDetails.textContent = writetext; // Set the text content to be displayed here
 
-        // Cancel button click event handler
-        cancelButton.addEventListener('click', cancelReply);
+                    // Get DOM elements
+                    const chatBox = document.getElementById('chat-box');
+                    const messageInput = document.getElementById('message-input');
+                    const sendButton = document.getElementById('send-button');
+                    let replyingBubble = null;
+                    // Get the cancel button element
+                    const cancelButton = document.getElementById('cancel-button');
 
-        // Create speech recognition object
-        const recognition = new webkitSpeechRecognition() || new SpeechRecognition();
+                    // Cancel button click event handler
+                    cancelButton.addEventListener('click', cancelReply);
 
-        // Set speech recognition parameters
-        recognition.lang = 'zh-CN'; // Set language to Chinese
+                    // Create speech recognition object
+                    const recognition = new webkitSpeechRecognition() || new SpeechRecognition();
 
-        // Trigger this callback function when speech is recognized
-        recognition.onresult = function (event) {
-            const transcript = event.results[0][0].transcript;
-            document.getElementById('message-input').value = transcript;
-        }
+                    // Set speech recognition parameters
+                    recognition.lang = 'zh-CN'; // Set language to Chinese
 
-        // Start speech recognition
-        function startSpeechRecognition() {
-            recognition.start();
-        }
-
-
-        function clearMessageDetails() {
-            const messageDetails = document.getElementById('message-details');
-            messageDetails.innerHTML = '';
-        }
-        // Cancel reply
-        function cancelReply() {
-            if (replyingBubble) {
-                replyingBubble.classList.remove('replying');
-                replyingBubble = null;
-                messageInput.value = '';
-                updateMessageDetails('', '');
-                clearMessageDetails();
-                var messageDetails = document.getElementById('message-details');
-                messageDetails.textContent = writetext; // Set the text content to be displayed here
-            }
-        }
-        // Send button click event handler
-        sendButton.addEventListener('click', sendMessage1);
-
-
-        function sendMessage1() {
-            event.preventDefault();
-            if (replyingBubble) {
-
-                updateMessageDetails('', '');
-                clearMessageDetails();
-                var messageDetails = document.getElementById('message-details');
-                messageDetails.textContent = writetext; // Set the text content to be displayed here
-                sendReply();
-            } else {
-
-                updateMessageDetails('', '');
-                clearMessageDetails();
-                var messageDetails = document.getElementById('message-details');
-                messageDetails.textContent = writetext; // Set the text content to be displayed here
-                sendMessage();
-            }
-        }
-
-
-        function sendMessage() {
-            const username = document.getElementById('username-input').value;
-            const message = messageInput.value;
-
-            if (username.trim() === '' || message.trim() === '') {
-                return;
-            }
-
-            // Create a chat bubble element
-            const chatBubble = document.createElement('div');
-            chatBubble.classList.add('chat-bubble');
-            chatBubble.innerHTML = `<strong>${username}</strong>: ${message}`;
-
-            // Add click event handler
-            chatBubble.addEventListener('click', function () {
-                if (!chatBubble.classList.contains('replying')) {
-                    if (replyingBubble) {
-                        replyingBubble.classList.remove('replying');
+                    // Trigger this callback function when speech is recognized
+                    recognition.onresult = function (event) {
+                        const transcript = event.results[0][0].transcript;
+                        document.getElementById('message-input').value = transcript;
                     }
-                    replyingBubble = chatBubble;
-                    replyingBubble.classList.add('replying');
-                    messageInput.value = '';
-                    messageInput.focus();
 
-                    // Update message details
-                    updateMessageDetails(username, message);
-                }
-                event.preventDefault();
-            });
-
-            // Add chat bubble to chat box
-            chatBox.appendChild(chatBubble);
-
-            // Clear input box
-            messageInput.value = '';
-        }
-
-        // Send button click event handler
-        sendButton.addEventListener('click', sendMessage);
-
-        // Press Enter key in input box to send message
-        messageInput.addEventListener('keydown', function (event) {
-            if (event.key === 'Enter' && !event.shiftKey) {
-                updateMessageDetails('', '');
-                clearMessageDetails()
-                var messageDetails = document.getElementById('message-details');
-                messageDetails.textContent = writetext; // Set the text content to be displayed here
-                event.preventDefault();
-                if (replyingBubble) {
-                    sendReply();
-                } else {
-                    sendMessage();
-                }
-            }
-        });
-
-        function updateReplyInfo(username, message) {
-            const replyInfo = document.getElementById('reply-info');
-            replyInfo.innerHTML = `Replying to: <strong>${username}</strong>: ${message}`;
-        }
+                    // Start speech recognition
+                    function startSpeechRecognition() {
+                        recognition.start();
+                    }
 
 
+                    function clearMessageDetails() {
+                        const messageDetails = document.getElementById('message-details');
+                        messageDetails.innerHTML = '';
+                    }
+                    // Cancel reply
+                    function cancelReply() {
+                        if (replyingBubble) {
+                            replyingBubble.classList.remove('replying');
+                            replyingBubble = null;
+                            messageInput.value = '';
+                            updateMessageDetails('', '');
+                            clearMessageDetails();
+                            var messageDetails = document.getElementById('message-details');
+                            messageDetails.textContent = writetext; // Set the text content to be displayed here
+                        }
+                    }
+                    // Send button click event handler
+                    sendButton.addEventListener('click', sendMessage1);
 
 
-        // Send reply message
-        function sendReply() {
-            const replyMessage = messageInput.value;
-            if (replyMessage.trim() === '') {
-                return;
-            }
+                    function sendMessage1() {
+                        event.preventDefault();
+                        if (replyingBubble) {
 
-            if (replyingBubble) {
-                const replyBubble = document.createElement('div');
-                replyBubble.classList.add('reply-bubble');
-                const username = document.getElementById('username-input').value;
-                replyBubble.innerHTML = `<strong>${username}</strong>: ${replyMessage}`;
-                replyingBubble.appendChild(replyBubble);
+                            updateMessageDetails('', '');
+                            clearMessageDetails();
+                            var messageDetails = document.getElementById('message-details');
+                            messageDetails.textContent = writetext; // Set the text content to be displayed here
+                            sendReply();
+                        } else {
 
-                replyingBubble.classList.remove('replying');
-                replyingBubble = null;
-                messageInput.value = '';
+                            updateMessageDetails('', '');
+                            clearMessageDetails();
+                            var messageDetails = document.getElementById('message-details');
+                            messageDetails.textContent = writetext; // Set the text content to be displayed here
+                            sendMessage();
+                        }
+                    }
 
-                // Update reply information
-                updateReplyInfo(username, replyMessage);
-            }
 
-        }
-        function updateMessageDetails(sender, content) {
-            const messageDetails = document.getElementById('message-details');
-            messageDetails.innerHTML = `<strong>Replying to:</strong> ${sender}<br><strong>Content:</strong> ${content}`;
-        }
-    </script>
+                    function sendMessage() {
+                        const username = document.getElementById('username-input').value;
+                        const message = messageInput.value;
 
+                        if (username.trim() === '' || message.trim() === '') {
+                            return;
+                        }
+
+                        // Create a chat bubble element
+                        const chatBubble = document.createElement('div');
+                        chatBubble.classList.add('chat-bubble');
+                        chatBubble.innerHTML = `<strong>${username}</strong>: ${message}`;
+
+                        // Add click event handler
+                        chatBubble.addEventListener('click', function () {
+                            if (!chatBubble.classList.contains('replying')) {
+                                if (replyingBubble) {
+                                    replyingBubble.classList.remove('replying');
+                                }
+                                replyingBubble = chatBubble;
+                                replyingBubble.classList.add('replying');
+                                messageInput.value = '';
+                                messageInput.focus();
+
+                                // Update message details
+                                updateMessageDetails(username, message);
+                            }
+                            event.preventDefault();
+                        });
+
+                        // Add chat bubble to chat box
+                        chatBox.appendChild(chatBubble);
+
+                        // Clear input box
+                        messageInput.value = '';
+                    }
+
+                    // Send button click event handler
+                    sendButton.addEventListener('click', sendMessage);
+
+                    // Press Enter key in input box to send message
+                    messageInput.addEventListener('keydown', function (event) {
+                        if (event.key === 'Enter' && !event.shiftKey) {
+                            updateMessageDetails('', '');
+                            clearMessageDetails()
+                            var messageDetails = document.getElementById('message-details');
+                            messageDetails.textContent = writetext; // Set the text content to be displayed here
+                            event.preventDefault();
+                            if (replyingBubble) {
+                                sendReply();
+                            } else {
+                                sendMessage();
+                            }
+                        }
+                    });
+
+                    function updateReplyInfo(username, message) {
+                        const replyInfo = document.getElementById('reply-info');
+                        replyInfo.innerHTML = `Replying to: <strong>${username}</strong>: ${message}`;
+                    }
+
+
+
+
+                    // Send reply message
+                    function sendReply() {
+                        const replyMessage = messageInput.value;
+                        if (replyMessage.trim() === '') {
+                            return;
+                        }
+
+                        if (replyingBubble) {
+                            const replyBubble = document.createElement('div');
+                            replyBubble.classList.add('reply-bubble');
+                            const username = document.getElementById('username-input').value;
+                            replyBubble.innerHTML = `<strong>${username}</strong>: ${replyMessage}`;
+                            replyingBubble.appendChild(replyBubble);
+
+                            replyingBubble.classList.remove('replying');
+                            replyingBubble = null;
+                            messageInput.value = '';
+
+                            // Update reply information
+                            updateReplyInfo(username, replyMessage);
+                        }
+
+                    }
+                    function updateMessageDetails(sender, content) {
+                        const messageDetails = document.getElementById('message-details');
+                        messageDetails.innerHTML = `<strong>Replying to:</strong> ${sender}<br><strong>Content:</strong> ${content}`;
+                    }
+                </script>
+
+                <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+                <script src="../app.js"></script>
 </body>
 </html>

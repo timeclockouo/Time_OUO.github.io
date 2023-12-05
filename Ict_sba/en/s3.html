@@ -35,6 +35,7 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
+                    <li><img src="../logo.png" alt="Image 1" style="width: 100px; height: 100px;"></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                            aria-expanded="false">Language <span class="caret"></span></a>
@@ -77,58 +78,64 @@
         </div>
     </nav>
     <!--Responsive Menu-->
-    <h1 class="text-center">Image Gallery</h1>
-    <h3 class="text-center">Day 3 of Shenzhen Three-Day Tour</h3>
-    <div class="carousel" style="width:80%;">
-        <div class="image-container">
-            <div class="image-wrapper">
-                <img id="pic" style="width: 100%; height: 450px;">
+    <div id="particles-js"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1 class="text-center">Image Gallery</h1>
+                <h3 class="text-center">Day 3 of Shenzhen Three-Day Tour</h3>
+                <div class="carousel" style="width:80%;">
+                    <div class="image-container">
+                        <div class="image-wrapper">
+                            <img id="pic" style="width: 100%; height: 450px;">
 
-                <div class="image-border"></div>
-            </div>
-        </div>
-        <button class="prev" onclick="pre()">&#10094;</button>
-        <button class="next" onclick="next()">&#10095;</button>
-    </div>
-    <div id="imageDescription" class="text-center"></div>
-    <div style="height: 50px;"></div>
-
-
-    <div class="image-container">
-        <label>
-            <input type="radio" name="image" value="../photo/s3 (1).jpg" onchange="changeImage(this)" data-description="This photo was taken near Shenzhen Bay">
-            <div class="image-wrapper">
-                <img src="../photo/s3 (1).jpg" alt="Image 1">
-                <div class="image-border"></div>
-            </div>
-        </label>
-        <label>
-            <input type="radio" name="image" value="../photo/s3 (2).jpg" onchange="changeImage(this)" data-description="This photo showcases the houses in Shenzhen">
-            <div class="image-wrapper">
-                <img src="../photo/s3 (2).jpg" alt="Image 1">
-                <div class="image-border"></div>
-            </div>
-        </label>
-        <label>
-            <input type="radio" name="image" value="../photo/s3 (3).jpg" onchange="changeImage(this)" data-description="This photo was taken near the Luohu Port">
-            <div class="image-wrapper">
-                <img src="../photo/s3 (3).jpg" alt="Image 1">
-                <div class="image-border"></div>
-            </div>
-        </label>
-        <label>
-            <input type="radio" name="image" value="../photo/s3 (4).jpg" onchange="changeImage(this)" data-description="This photo was taken near Da Ya Wan in Shenzhen">
-            <div class="image-wrapper">
-                <img src="../photo/s3 (4).jpg" alt="Image 1">
-                <div class="image-border"></div>
-            </div>
-        </label>
-    </div>
+                            <div class="image-border"></div>
+                        </div>
+                    </div>
+                    <button class="prev" onclick="pre()">&#10094;</button>
+                    <button class="next" onclick="next()">&#10095;</button>
+                </div>
+                <div id="imageDescription" class="text-center"></div>
+                <div style="height: 50px;"></div>
 
 
+                <div class="image-container">
+                    <label>
+                        <input type="radio" name="image" value="../photo/s3 (1).jpg" onchange="changeImage(this)" data-description="This photo was taken near Shenzhen Bay">
+                        <div class="image-wrapper">
+                            <img src="../photo/s3 (1).jpg" alt="Image 1">
+                            <div class="image-border"></div>
+                        </div>
+                    </label>
+                    <label>
+                        <input type="radio" name="image" value="../photo/s3 (2).jpg" onchange="changeImage(this)" data-description="This photo showcases the houses in Shenzhen">
+                        <div class="image-wrapper">
+                            <img src="../photo/s3 (2).jpg" alt="Image 1">
+                            <div class="image-border"></div>
+                        </div>
+                    </label>
+                    <label>
+                        <input type="radio" name="image" value="../photo/s3 (3).jpg" onchange="changeImage(this)" data-description="This photo was taken near the Luohu Port">
+                        <div class="image-wrapper">
+                            <img src="../photo/s3 (3).jpg" alt="Image 1">
+                            <div class="image-border"></div>
+                        </div>
+                    </label>
+                    <label>
+                        <input type="radio" name="image" value="../photo/s3 (4).jpg" onchange="changeImage(this)" data-description="This photo was taken near Da Ya Wan in Shenzhen">
+                        <div class="image-wrapper">
+                            <img src="../photo/s3 (4).jpg" alt="Image 1">
+                            <div class="image-border"></div>
+                        </div>
+                    </label>
+                </div>
 
 
-    <div class="back-top hide" title="Back to Top"></div>
+
+
+                <div class="back-top hide" title="Back to Top"></div>
+                <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+                <script src="../app.js"></script>
 
 
 </body>
