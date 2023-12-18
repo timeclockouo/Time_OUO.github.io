@@ -39,7 +39,7 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                            aria-expanded="false">Language <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu" style="top:auto;">
                             <li><a href="../en/message.html">English</a></li>
                             <li><a href="../zh/message.html">中文</a></li>
                         </ul>
@@ -50,11 +50,11 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                            aria-expanded="false">Album <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu" style="top:auto;">
                             <li class="dropdown-submenu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                    aria-haspopup="true" aria-expanded="false">Two-Day Trip to Shanghai <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
+                                <ul class="dropdown-menu" style="top:auto;">
                                     <li><a href="sh1.html">Day 1</a></li>
                                     <li><a href="sh2.html">Day 2</a></li>
                                 </ul>
@@ -62,7 +62,7 @@
                             <li class="dropdown-submenu">
                                 <a href="#" class="dropdown-toggle data-toggle="dropdown" role="button"
                                    aria-haspopup="true" aria-expanded="false">Three-Day Trip to Shenzhen <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
+                                <ul class="dropdown-menu" style="top:auto;">
                                     <li><a href="s1.html">Day 1</a></li>
                                     <li><a href="s2.html">Day 2</a></li>
                                     <li><a href="s3.html">Day 3</a></li>
@@ -77,37 +77,37 @@
             </div>
         </div>
     </nav>
-
+    <div style="height: 10px;"></div>
     <div id="particles-js"></div>
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
                 <div id="chat-container">
-                    <div id="chat-box"></div>
-                    <div id="message-details"></div>
+                    <div id="chbox"></div>
+                    <div id="mes-De"></div>
                     <div id="input-container">
-                        <input type="text" id="username-input" placeholder="Username">
-                        <input type="text" id="message-input" placeholder="Enter your message">
+                        <input type="text" id="nameinput" placeholder="Username">
+                        <input type="text" id="messageinput" placeholder="Enter your message">
                         <button onclick="startSpeechRecognition()"><i class="fa fa-microphone"></i>Voice Input</button>
-                        <button id="send-button">Send</button>
-                        <button id="cancel-button">Cancel Reply</button>
+                        <button id="sendmessagebutton">Send</button>
+                        <button id="cancelmessagereplybutton">Cancel Reply</button>
                     </div>
 
                 </div>
 
                 <script>
-                    var cancelReplyBtn = document.getElementById('cancel-button');
-                    var messageDetails = document.getElementById('message-details');
+                    var cReBut = document.getElementById('cancelmessagereplybutton');
+                    var mesDe = document.getElementById('mes-De');
                     var writetext = "Click to reply to the message";
-                    messageDetails.textContent = writetext; // Set the text content to be displayed here
+                    mesDe.textContent = writetext; // Set the text content to be displayed here
 
                     // Get DOM elements
-                    const chatBox = document.getElementById('chat-box');
-                    const messageInput = document.getElementById('message-input');
-                    const sendButton = document.getElementById('send-button');
+                    const chatBox = document.getElementById('chbox');
+                    const messageInput = document.getElementById('messageinput');
+                    const sendButton = document.getElementById('sendmessagebutton');
                     let replyingBubble = null;
                     // Get the cancel button element
-                    const cancelButton = document.getElementById('cancel-button');
+                    const cancelButton = document.getElementById('cancelmessagereplybutton');
 
                     // Cancel button click event handler
                     cancelButton.addEventListener('click', cancelReply);
@@ -121,7 +121,7 @@
                     // Trigger this callback function when speech is recognized
                     recognition.onresult = function (event) {
                         const transcript = event.results[0][0].transcript;
-                        document.getElementById('message-input').value = transcript;
+                        document.getElementById('messageinput').value = transcript;
                     }
 
                     // Start speech recognition
@@ -130,9 +130,9 @@
                     }
 
 
-                    function clearMessageDetails() {
-                        const messageDetails = document.getElementById('message-details');
-                        messageDetails.innerHTML = '';
+                    function clearmesDe() {
+                        const mesDe = document.getElementById('mes-De');
+                        mesDe.innerHTML = '';
                     }
                     // Cancel reply
                     function cancelReply() {
@@ -140,10 +140,10 @@
                             replyingBubble.classList.remove('replying');
                             replyingBubble = null;
                             messageInput.value = '';
-                            updateMessageDetails('', '');
-                            clearMessageDetails();
-                            var messageDetails = document.getElementById('message-details');
-                            messageDetails.textContent = writetext; // Set the text content to be displayed here
+                            updatemesDe('', '');
+                            clearmesDe();
+                            var mesDe = document.getElementById('mes-De');
+                            mesDe.textContent = writetext; // Set the text content to be displayed here
                         }
                     }
                     // Send button click event handler
@@ -154,24 +154,24 @@
                         event.preventDefault();
                         if (replyingBubble) {
 
-                            updateMessageDetails('', '');
-                            clearMessageDetails();
-                            var messageDetails = document.getElementById('message-details');
-                            messageDetails.textContent = writetext; // Set the text content to be displayed here
+                            updatemesDe('', '');
+                            clearmesDe();
+                            var mesDe = document.getElementById('mes-De');
+                            mesDe.textContent = writetext; // Set the text content to be displayed here
                             sendReply();
                         } else {
 
-                            updateMessageDetails('', '');
-                            clearMessageDetails();
-                            var messageDetails = document.getElementById('message-details');
-                            messageDetails.textContent = writetext; // Set the text content to be displayed here
+                            updatemesDe('', '');
+                            clearmesDe();
+                            var mesDe = document.getElementById('mes-De');
+                            mesDe.textContent = writetext; // Set the text content to be displayed here
                             sendMessage();
                         }
                     }
 
 
                     function sendMessage() {
-                        const username = document.getElementById('username-input').value;
+                        const username = document.getElementById('nameinput').value;
                         const message = messageInput.value;
 
                         if (username.trim() === '' || message.trim() === '') {
@@ -195,7 +195,7 @@
                                 messageInput.focus();
 
                                 // Update message details
-                                updateMessageDetails(username, message);
+                                updatemesDe(username, message);
                             }
                             event.preventDefault();
                         });
@@ -213,10 +213,10 @@
                     // Press Enter key in input box to send message
                     messageInput.addEventListener('keydown', function (event) {
                         if (event.key === 'Enter' && !event.shiftKey) {
-                            updateMessageDetails('', '');
-                            clearMessageDetails()
-                            var messageDetails = document.getElementById('message-details');
-                            messageDetails.textContent = writetext; // Set the text content to be displayed here
+                            updatemesDe('', '');
+                            clearmesDe()
+                            var mesDe = document.getElementById('mes-De');
+                            mesDe.textContent = writetext; // Set the text content to be displayed here
                             event.preventDefault();
                             if (replyingBubble) {
                                 sendReply();
@@ -244,7 +244,7 @@
                         if (replyingBubble) {
                             const replyBubble = document.createElement('div');
                             replyBubble.classList.add('reply-bubble');
-                            const username = document.getElementById('username-input').value;
+                            const username = document.getElementById('nameinput').value;
                             replyBubble.innerHTML = `<strong>${username}</strong>: ${replyMessage}`;
                             replyingBubble.appendChild(replyBubble);
 
@@ -257,13 +257,16 @@
                         }
 
                     }
-                    function updateMessageDetails(sender, content) {
-                        const messageDetails = document.getElementById('message-details');
-                        messageDetails.innerHTML = `<strong>Replying to:</strong> ${sender}<br><strong>Content:</strong> ${content}`;
+                    function updatemesDe(sender, content) {
+                        const mesDe = document.getElementById('mes-De');
+                        mesDe.innerHTML = `<strong>Replying to:</strong> ${sender}<br><strong>Content:</strong> ${content}`;
                     }
                 </script>
 
                 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
                 <script src="../app.js"></script>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

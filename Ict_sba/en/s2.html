@@ -39,7 +39,7 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                            aria-expanded="false">Language <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu" style="top:auto;">
                             <li><a href="../en/s2.html">English</a></li>
                             <li><a href="../zh/s2.html">中文</a></li>
                         </ul>
@@ -50,11 +50,11 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                            aria-expanded="false">Album <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu" style="top:auto;">
                             <li class="dropdown-submenu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                    aria-haspopup="true" aria-expanded="false">Two-Day Trip to Shanghai <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
+                                <ul class="dropdown-menu" style="top:auto;">
                                     <li><a href="sh1.html">Day 1</a></li>
                                     <li><a href="sh2.html">Day 2</a></li>
                                 </ul>
@@ -62,7 +62,7 @@
                             <li class="dropdown-submenu">
                                 <a href="#" class="dropdown-toggle data-toggle="dropdown" role="button"
                                    aria-haspopup="true" aria-expanded="false">Three-Day Trip to Shenzhen <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
+                                <ul class="dropdown-menu" style="top:auto;">
                                     <li><a href="s1.html">Day 1</a></li>
                                     <li><a href="s2.html">Day 2</a></li>
                                     <li><a href="s3.html">Day 3</a></li>
@@ -84,10 +84,10 @@
             <div class="col-sm-12">
                 <h1 class="text-center">Image Gallery</h1>
                 <h3 class="text-center">Day 2 of Shenzhen Three-Day Tour</h3>
-                <div class="carousel" style="width:80%;">
+                <div class="carousel" style="width:80%; height:100%">
                     <div class="image-container">
                         <div class="image-wrapper">
-                            <img id="pic" style="width: 100%; height: 450px;">
+                            <img id="pic" style="width: 100%; height: 100%;">
 
                             <div class="image-border"></div>
                         </div>
@@ -101,21 +101,21 @@
 
                 <div class="image-container">
                     <label>
-                        <input type="radio" name="image" value="../photo/s2 (1).jpg" onchange="changeImage(this)" data-description="This photo was taken near Shenzhen city center">
+                        <input type="radio" name="image" value="../photo/s2 (1).jpg" onchange="changeImage(this)" data-description="Shenzhen city center">
                         <div class="image-wrapper">
                             <img src="../photo/s2 (1).jpg" alt="Image 1">
                             <div class="image-border"></div>
                         </div>
                     </label>
                     <label>
-                        <input type="radio" name="image" value="../photo/s2 (2).jpg" onchange="changeImage(this)" data-description="This photo was taken near Shenzhen city center">
+                        <input type="radio" name="image" value="../photo/s2 (2).jpg" onchange="changeImage(this)" data-description="Shenzhen city center">
                         <div class="image-wrapper">
                             <img src="../photo/s2 (2).jpg" alt="Image 1">
                             <div class="image-border"></div>
                         </div>
                     </label>
                     <label>
-                        <input type="radio" name="image" value="../photo/s2 (3).jpg" onchange="changeImage(this)" data-description="This photo was taken near Shenzhen Bay">
+                        <input type="radio" name="image" value="../photo/s2 (3).jpg" onchange="changeImage(this)" data-description="Shenzhen Bay">
                         <div class="image-wrapper">
                             <img src="../photo/s2 (3).jpg" alt="Image 1">
                             <div class="image-border"></div>
@@ -129,5 +129,8 @@
                 <div class="back-top hide" title="Back to Top"></div>
                 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
                 <script src="../app.js"></script>
+            </div>
+        </div>
+    </div>
 
 </body>

@@ -32,7 +32,7 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                            aria-expanded="false">語言 <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu" style="top:auto;">
                             <li><a href="../en/s3.html">English</a></li>
                             <li><a href="../zh/s3.html">中文</a></li>
                         </ul>
@@ -43,11 +43,11 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                            aria-expanded="false">相簿 <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu" style="top:auto;">
                             <li class="dropdown-submenu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                    aria-haspopup="true" aria-expanded="false">上海兩日遊 <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
+                                <ul class="dropdown-menu" style="top:auto;">
                                     <li><a href="sh1.html">第1天</a></li>
                                     <li><a href="sh2.html">第2天</a></li>
                                 </ul>
@@ -55,7 +55,7 @@
                             <li class="dropdown-submenu">
                                 <a href="#" class="dropdown-toggle data-toggle="dropdown" role="button"
                                    aria-haspopup="true" aria-expanded="false">深圳三日遊 <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
+                                <ul class="dropdown-menu" style="top:auto;">
                                     <li><a href="s1.html">第1天</a></li>
                                     <li><a href="s2.html">第2天</a></li>
                                     <li><a href="s3.html">第3天</a></li>
@@ -77,10 +77,11 @@
             <div class="col-sm-12">
                 <h1 class="text-center">圖片庫</h1>
                 <h3 class="text-center">深圳三日遊第3天</h3>
-                <div class="carousel" style="width:80%;">
+                <div class="carousel" style="width:80%; height:100%">
                     <div class="image-container">
                         <div class="image-wrapper">
-                            <img id="pic" style="width: 100%; height: 450px;">
+                            <img id="pic" style="width: 100%; height: 100%;">
+
                             <div class="image-border"></div>
                         </div>
                     </div>
@@ -91,30 +92,30 @@
                 <div style="height: 50px;"></div>
                 <div class="image-container">
                     <label>
-                        <input type="radio" name="image" value="../photo/s3 (1).jpg" onchange="changeImage(this)" data-description="這是在深圳灣附近拍攝的照片">
+                        <input type="radio" name="image" value="../photo/s3 (1).jpg" onchange="changeImage(this)" data-description="深圳灣">
                         <div class="image-wrapper">
-                            <img src="../photo/s3 (1).jpg" alt="Image 1">
+                            <img src="../photo/s3 (1).jpg" alt="深圳灣">
                             <div class="image-border"></div>
                         </div>
                     </label>
                     <label>
-                        <input type="radio" name="image" value="../photo/s3 (2).jpg" onchange="changeImage(this)" data-description="圖片展示了深圳的房屋">
+                        <input type="radio" name="image" value="../photo/s3 (2).jpg" onchange="changeImage(this)" data-description="深圳房屋">
                         <div class="image-wrapper">
-                            <img src="../photo/s3 (2).jpg" alt="Image 1">
+                            <img src="../photo/s3 (2).jpg" alt="深圳房屋">
                             <div class="image-border"></div>
                         </div>
                     </label>
                     <label>
-                        <input type="radio" name="image" value="../photo/s3 (3).jpg" onchange="changeImage(this)" data-description="這是在羅湖口岸附近拍攝的照片">
+                        <input type="radio" name="image" value="../photo/s3 (3).jpg" onchange="changeImage(this)" data-description="羅湖口岸">
                         <div class="image-wrapper">
-                            <img src="../photo/s3 (3).jpg" alt="Image 1">
+                            <img src="../photo/s3 (3).jpg" alt="羅湖口岸">
                             <div class="image-border"></div>
                         </div>
                     </label>
                     <label>
-                        <input type="radio" name="image" value="../photo/s3 (4).jpg" onchange="changeImage(this)" data-description="這是在深圳市大亞灣附近拍攝的照片">
+                        <input type="radio" name="image" value="../photo/s3 (4).jpg" onchange="changeImage(this)" data-description="深圳市大亞灣">
                         <div class="image-wrapper">
-                            <img src="../photo/s3 (4).jpg" alt="Image 1">
+                            <img src="../photo/s3 (4).jpg" alt="深圳市大亞灣">
                             <div class="image-border"></div>
                         </div>
                     </label>
@@ -122,4 +123,7 @@
                 <div class="back-top hide" title="回頂部"></div>
                 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
                 <script src="../app.js"></script>
+            </div>
+        </div>
+    </div>
 </body>

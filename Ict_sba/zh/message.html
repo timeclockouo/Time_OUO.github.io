@@ -32,7 +32,7 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                            aria-expanded="false">語言 <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu" style="top:auto;">
                             <li><a href="../en/message.html">English</a></li>
                             <li><a href="../zh/message.html">中文</a></li>
                         </ul>
@@ -43,11 +43,11 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                            aria-expanded="false">相簿 <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu" style="top:auto;">
                             <li class="dropdown-submenu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                    aria-haspopup="true" aria-expanded="false">上海兩日遊 <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
+                                <ul class="dropdown-menu" style="top:auto;">
                                     <li><a href="sh1.html">第1天</a></li>
                                     <li><a href="sh2.html">第2天</a></li>
                                 </ul>
@@ -55,7 +55,7 @@
                             <li class="dropdown-submenu">
                                 <a href="#" class="dropdown-toggle data-toggle="dropdown" role="button"
                                    aria-haspopup="true" aria-expanded="false">深圳三日遊 <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
+                                <ul class="dropdown-menu" style="top:auto;">
                                     <li><a href="s1.html">第1天</a></li>
                                     <li><a href="s2.html">第2天</a></li>
                                     <li><a href="s3.html">第3天</a></li>
@@ -70,33 +70,34 @@
             </div>
         </div>
     </nav>
+    <div style="height: 10px;"></div>
     <div id="particles-js"></div>
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
                 <div id="chat-container">
-                    <div id="chat-box"></div>
-                    <div id="message-details"></div>
+                    <div id="chbox"></div>
+                    <div id="mes-De"></div>
                     <div id="input-container">
-                        <input type="text" id="username-input" placeholder="用戶名">
-                        <input type="text" id="message-input" placeholder="輸入聊天內容">
+                        <input type="text" id="nameinput" placeholder="用戶名">
+                        <input type="text" id="messageinput" placeholder="輸入聊天內容">
                         <button onclick="startSpeechRecognition()"><i class="fa fa-microphone"></i>語音輸入</button>
-                        <button id="send-button">發送</button>
-                        <button id="cancel-button">取消回復</button>
+                        <button id="sendmessagebutton">發送</button>
+                        <button id="cancelmessagereplybutton">取消回復</button>
                     </div>
                 </div>
                 <script>
-                    var cancelReplyBtn = document.getElementById('cancel-button');
-                    var messageDetails = document.getElementById('message-details');
+                    var cReBut = document.getElementById('cancelmessagereplybutton');
+                    var mesDe = document.getElementById('mes-De');
                     var writetext = "點擊留言回覆";
-                    messageDetails.textContent = writetext; // 在這裡設置要顯示的文字內容
+                    mesDe.textContent = writetext; // 在這裡設置要顯示的文字內容
                     // 獲取 DOM 元素
-                    const chatBox = document.getElementById('chat-box');
-                    const messageInput = document.getElementById('message-input');
-                    const sendButton = document.getElementById('send-button');
+                    const chatBox = document.getElementById('chbox');
+                    const messageInput = document.getElementById('messageinput');
+                    const sendButton = document.getElementById('sendmessagebutton');
                     let replyingBubble = null;
                     // 獲取取消按鈕元素
-                    const cancelButton = document.getElementById('cancel-button');
+                    const cancelButton = document.getElementById('cancelmessagereplybutton');
                     // 取消按鈕點擊事件處理常式
                     cancelButton.addEventListener('click', cancelReply);
                     // 創建語音辨識對象
@@ -106,15 +107,15 @@
                     // 當識別到語音時觸發該回呼函數
                     recognition.onresult = function (event) {
                         const transcript = event.results[0][0].transcript;
-                        document.getElementById('message-input').value = transcript;
+                        document.getElementById('messageinput').value = transcript;
                     }
                     // 開始語音輸入
                     function startSpeechRecognition() {
                         recognition.start();
                     }
-                    function clearMessageDetails() {
-                        const messageDetails = document.getElementById('message-details');
-                        messageDetails.innerHTML = '';
+                    function clearmesDe() {
+                        const mesDe = document.getElementById('mes-De');
+                        mesDe.innerHTML = '';
                     }
                     // 取消回復
                     function cancelReply() {
@@ -122,10 +123,10 @@
                             replyingBubble.classList.remove('replying');
                             replyingBubble = null;
                             messageInput.value = '';
-                            updateMessageDetails('', '');
-                            clearMessageDetails();
-                            var messageDetails = document.getElementById('message-details');
-                            messageDetails.textContent = writetext; // 在這裡設置要顯示的文字內容
+                            updatemesDe('', '');
+                            clearmesDe();
+                            var mesDe = document.getElementById('mes-De');
+                            mesDe.textContent = writetext; // 在這裡設置要顯示的文字內容
                         }
                     }
                     // 發送按鈕點擊事件處理常式
@@ -133,21 +134,21 @@
                     function sendMessage1() {
                         event.preventDefault();
                         if (replyingBubble) {
-                            updateMessageDetails('', '');
-                            clearMessageDetails();
-                            var messageDetails = document.getElementById('message-details');
-                            messageDetails.textContent = writetext; // 在這裡設置要顯示的文字內容
+                            updatemesDe('', '');
+                            clearmesDe();
+                            var mesDe = document.getElementById('mes-De');
+                            mesDe.textContent = writetext; // 在這裡設置要顯示的文字內容
                             sendReply();
                         } else {
-                            updateMessageDetails('', '');
-                            clearMessageDetails();
-                            var messageDetails = document.getElementById('message-details');
-                            messageDetails.textContent = writetext; // 在這裡設置要顯示的文字內容
+                            updatemesDe('', '');
+                            clearmesDe();
+                            var mesDe = document.getElementById('mes-De');
+                            mesDe.textContent = writetext; // 在這裡設置要顯示的文字內容
                             sendMessage();
                         }
                     }
                     function sendMessage() {
-                        const username = document.getElementById('username-input').value;
+                        const username = document.getElementById('nameinput').value;
                         const message = messageInput.value;
                         if (username.trim() === '' || message.trim() === '') {
                             return;
@@ -167,7 +168,7 @@
                                 messageInput.value = '';
                                 messageInput.focus();
                                 // 更新消息詳情
-                                updateMessageDetails(username, message);
+                                updatemesDe(username, message);
                             }
                             event.preventDefault();
                         });
@@ -181,10 +182,10 @@
                     // 輸入框按下 Enter 鍵發送消息
                     messageInput.addEventListener('keydown', function (event) {
                         if (event.key === 'Enter' && !event.shiftKey) {
-                            updateMessageDetails('', '');
-                            clearMessageDetails()
-                            var messageDetails = document.getElementById('message-details');
-                            messageDetails.textContent = writetext; // 在這裡設置要顯示的文字內容
+                            updatemesDe('', '');
+                            clearmesDe()
+                            var mesDe = document.getElementById('mes-De');
+                            mesDe.textContent = writetext; // 在這裡設置要顯示的文字內容
                             event.preventDefault();
                             if (replyingBubble) {
                                 sendReply();
@@ -206,7 +207,7 @@
                         if (replyingBubble) {
                             const replyBubble = document.createElement('div');
                             replyBubble.classList.add('reply-bubble');
-                            const username = document.getElementById('username-input').value;
+                            const username = document.getElementById('nameinput').value;
                             replyBubble.innerHTML = `<strong>${username}</strong>: ${replyMessage}`;
                             replyingBubble.appendChild(replyBubble);
 
@@ -218,12 +219,15 @@
                             updateReplyInfo(username, replyMessage);
                         }
                     }
-                    function updateMessageDetails(sender, content) {
-                        const messageDetails = document.getElementById('message-details');
-                        messageDetails.innerHTML = `<strong>回覆@</strong> ${sender}<br><strong>內容:</strong> ${content}`;
+                    function updatemesDe(sender, content) {
+                        const mesDe = document.getElementById('mes-De');
+                        mesDe.innerHTML = `<strong>回覆@</strong> ${sender}<br><strong>內容:</strong> ${content}`;
                     }
                 </script>
                 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
                 <script src="../app.js"></script>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

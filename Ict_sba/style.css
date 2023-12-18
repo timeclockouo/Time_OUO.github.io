@@ -25,14 +25,16 @@ body {
     height: 100vh;
 }
 
-#chat-box {
+#chbox {
     width: 70%;
-    height: 70%;
+    height: 65%;
     overflow-y: scroll;
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 10px;
     background-color: #fff;
+    word-wrap: break-word; /* 自動換行，將長單字斷行 */
+    word-break: break-all; /* 自動換行，將長單字完全斷開 */
 }
 
 .chat-bubble {
@@ -55,14 +57,14 @@ body {
     margin-top: 10px;
 }
 
-#username-input {
+#nameinput {
     width: 20%;
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 3px;
 }
 
-#message-input {
+#messageinput {
     flex: 1;
     padding: 5px;
     border: 1px solid #ccc;
@@ -103,10 +105,12 @@ body {
             background-color: #999;
         }
 
-#message-details {
+#mes-De {
     display: flex;
     align-items: center;
     justify-content: center;
+    word-wrap: break-word; /* 自動換行，將長單字斷行 */
+    word-break: break-all; /* 自動換行，將長單字完全斷開 */
 }
 
 
