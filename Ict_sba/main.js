@@ -44,15 +44,15 @@ $(document).ready(function () {
 function sen() {
     const targetElement = document.getElementById('sen');
     const windowHeight = window.innerHeight;
-    const elementOffset = targetElement.offsetTop;
-    const targetPosition = elementOffset - (windowHeight / 2);
+    const elementOffset = targetElement.offsetTop + 175;
+    const targetPosition = elementOffset;
     window.scrollTo({ top: targetPosition, behavior: 'smooth' });
 }
 function sh() {
     const targetElement = document.getElementById('sh');
     const windowHeight = window.innerHeight;
-    const elementOffset = targetElement.offsetTop;
-    const targetPosition = elementOffset - (windowHeight / 2);
+    const elementOffset = targetElement.offsetTop + 175;
+    const targetPosition = elementOffset;
     window.scrollTo({ top: targetPosition, behavior: 'smooth' });
 }
 function changeImage(input) {
@@ -192,3 +192,12 @@ function handleScroll() {
 }
 
 window.addEventListener('scroll', handleScroll);
+$(document).ready(function () {
+    
+
+    $('.dropdown').on('mouseenter', function (e) {
+        $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
+    }).on('mouseleave', function (e) {
+        $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
+    });
+});
