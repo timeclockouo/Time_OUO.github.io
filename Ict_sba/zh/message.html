@@ -28,7 +28,7 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li><img src="../logo.png" alt="Image 1" style="width: 100px; height: 100px;"></li>
+                    <li><img src="../photo/logo.png" alt="Image 1" style="width: 100px; height: 100px;"></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                            aria-expanded="false">語言 <span class="caret"></span></a>
@@ -90,7 +90,7 @@
                     var cReBut = document.getElementById('cancelmessagereplybutton');
                     var mesDe = document.getElementById('mes-De');
                     var writetext = "點擊留言回覆";
-                    mesDe.textContent = writetext; // 在這裡設置要顯示的文字內容
+                    mesDe.textContent = writetext; // 文字內容
                     // 獲取 DOM 元素
                     const chatBox = document.getElementById('chbox');
                     const messageInput = document.getElementById('messageinput');
@@ -126,7 +126,7 @@
                             updatemesDe('', '');
                             clearmesDe();
                             var mesDe = document.getElementById('mes-De');
-                            mesDe.textContent = writetext; // 在這裡設置要顯示的文字內容
+                            mesDe.textContent = writetext; // 文字內容
                         }
                     }
                     // 發送按鈕點擊事件處理常式
@@ -137,13 +137,13 @@
                             updatemesDe('', '');
                             clearmesDe();
                             var mesDe = document.getElementById('mes-De');
-                            mesDe.textContent = writetext; // 在這裡設置要顯示的文字內容
+                            mesDe.textContent = writetext; // 文字內容
                             sendReply();
                         } else {
                             updatemesDe('', '');
                             clearmesDe();
                             var mesDe = document.getElementById('mes-De');
-                            mesDe.textContent = writetext; // 在這裡設置要顯示的文字內容
+                            mesDe.textContent = writetext; // 文字內容
                             sendMessage();
                         }
                     }
@@ -185,7 +185,7 @@
                             updatemesDe('', '');
                             clearmesDe()
                             var mesDe = document.getElementById('mes-De');
-                            mesDe.textContent = writetext; // 在這裡設置要顯示的文字內容
+                            mesDe.textContent = writetext; // 文字內容
                             event.preventDefault();
                             if (replyingBubble) {
                                 sendReply();

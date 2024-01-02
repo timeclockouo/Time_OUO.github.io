@@ -1,13 +1,4 @@
-﻿function switchPage(pageId) {
-    // 隱藏頁面
-    var p = document.getElementsByClassName("page");
-    for (var i = 0; i < p.length; i++) {
-        p[i].style.display = "none";
-    }
-    // 顯示頁面
-    var t_P = document.getElementById(pageId);
-    t_P.style.display = "block";
-}
+﻿
 $(document).ready(function () {
     // 捲軸偵測距離頂部超過 50 才顯示按鈕
     $(window).scroll(function () {
@@ -40,7 +31,7 @@ $(document).ready(function () {
     });
 });
 
-//follow world
+//follow
 function sen() {
     const targetElement = document.getElementById('sen');
     const windowHeight = window.innerHeight;
@@ -161,7 +152,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-var audio = new Audio('../music.mp3'); // 替換為你的背景音樂檔的路徑
+var audio = new Audio('../music.mp3'); // 背景音樂檔的路徑
 
 function music() {
     if (audio.paused) {
